@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Potta+One&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ol,ul,li{
+    list-style: none;
+}
+a,a:hover,a:focus{
+    text-decoration: none;
+    outline: none;
+}
+h1,h2,h3,h5,h6,p{
+    margin-bottom: 0;
+}
+body{
+    overflow-y: hidden;
+    position: relative;
+    max-height:100vh;
+    background: url(../images/elephant-1822636_1920.jpg) no-repeat center;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+.widthAuto{
+    width: auto!important;
+}
+.displayInlineBlock{
+   display:inline-block;
+}
+.displayBlock{
+    display:block;
+}
+
+form label{
+    display:block;
+    margin: 10px;
+    color: white;
+    font-family: 'Fira Code', monospace;
+    font-size: 20px;
+}
+form input{
+    width: 70%;
+    outline:none;
+    margin: 10px;
+    padding: 5px 10px;
+    font-family: 'Fira Code', monospace;
+    font-size: 20px;
+    border: 2px solid #444444;
+    border-radius: 5px;
+    
+}
+form button{
+    display:block!important;
+    margin: 10px;
+    font-size: 20px!important;
+    font-family: 'Fira Code', monospace;
+
+
+}
+
+.formContent{
+    margin-top: 20px;
+    height: 100vh;
+}
+.formTitle{
+    text-align: center;
+    margin-top: 10px;
+    font-family: 'Potta One', cursive;
+    letter-spacing: 5px;
+
+}
+.selectGender{
+    margin: 10px;
+    color: white;
+    font-size: 20px;
+    font-family: 'Fira Code', monospace;
+}
