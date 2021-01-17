@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     }
     // confirmPassword validation //
     if (empty($confirmPassword)) {
-        $errorMessage = "<p style='color:red;'>its empty</p>";
+        $errorMessage = "<p style='color:red;'>please say something</p>";
         echo $errorMessage;
     } elseif ($password !== $confirmPassword) {
         $errorMessage = "<p style='color:red;'>its not same</p>";
