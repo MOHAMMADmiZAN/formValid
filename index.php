@@ -16,23 +16,29 @@
 </header>
 <main class="formContent">
     <div class="container">
-        <form action="response.php" method="post">
-            <label for="name">FULL_NAME:</label>
-            <input type="text" id="name" placeholder="Type Your Name" name="name">
-            <label for="email">EMAIL: </label>
-            <input type="email" id="email" placeholder=" Type Your Email" name="email">
-            <label for="password">PASSWORD:</label>
-            <input type="password" id="password" placeholder=" Type Your Password" name="password">
-            <label for="re-password">CONFIRM_PASSWORD:</label>
-            <input type="password" id="re-password" placeholder=" Confirm Your Password" name="confirmPassword">
-            <div class="selectGender displayBlock">Select Your Gender :
-                <input type="radio" id="gender" placeholder="male" name="gender" value="male" class="widthAuto" checked>
-                <label for="gender" class="displayInlineBlock">Male</label>
-                <input type="radio" id="genderF" placeholder="female" value="female" name="gender" class="widthAuto">
-                <label for="genderF" class="displayInlineBlock">Female</label>
+        <div class="row">
+            <div class="col-lg-12">
+                <form action="response.php" method="post">
+                    <label for="name">FULL_NAME:</label>
+                    <input type="text" id="name" placeholder="Type Your Name" name="name">
+                    <label for="email">EMAIL: </label>
+                    <input type="email" id="email" placeholder=" Type Your Email" name="email">
+                    <label for="password">PASSWORD:</label>
+                    <input type="password" id="password" placeholder=" Type Your Password" name="password">
+                    <label for="re-password">CONFIRM_PASSWORD:</label>
+                    <input type="password" id="re-password" placeholder=" Confirm Your Password" name="confirmPassword">
+                    <div class="selectGender displayBlock">Select Your Gender :
+                        <input type="radio" id="gender" placeholder="male" name="gender" value="male" class="widthAuto"
+                               checked>
+                        <label for="gender" class="displayInlineBlock">Male</label>
+                        <input type="radio" id="genderF" placeholder="female" value="female" name="gender"
+                               class="widthAuto">
+                        <label for="genderF" class="displayInlineBlock">Female</label>
+                    </div>
+                    <button type="submit" name="submit" class="btn btn-primary">SUBMIT</button>
+                </form>
             </div>
-            <button type="submit" name="submit" class="btn btn-primary">SUBMIT</button>
-        </form>
+        </div>
     </div>
 </main>
 
