@@ -10,6 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     $emailRegex = !preg_match("/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,10})$/", $email);
     $passwordRegex = !preg_match("/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,100}$/", $password);
     //name Validation //
+
     if (empty($name)) {
         $errorMessage = "<p style='color:red;'>please say something</p>";
         echo $errorMessage;
@@ -43,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         echo "</br>";
         echo $password;
     }
-    // confirmPassword valid //
+    // confirmPassword validation //
     if (empty($confirmPassword)) {
         $errorMessage = "<p style='color:red;'>its empty</p>";
         echo $errorMessage;
@@ -58,7 +59,10 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         echo "Its Awesome";
     }
 
-
 } else {
     header("Location:index.php");
 }
+
+
+
+
