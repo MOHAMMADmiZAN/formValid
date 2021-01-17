@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     //name Validation //
 
     if (empty($name)) {
-        $errorMessage = "<p style='color:red;'>please say something</p>";
+        $errorMessage = "<p style='color:red;'>Please Say Something</p>";
         echo $errorMessage;
     } else if ($nameRegex) {
         $errorMessage = "<p style='color:red;'>Only alphabets and whitespace are allowed.</p>";
@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     }
     // email validation //
     if (empty($email)) {
-        $errorMessage = "<p style='color:red;'>please say something</p>";
+        $errorMessage = "<p style='color:red;'>Please Say Something</p>";
         echo $errorMessage;
     } elseif ($emailRegex) {
         $errorMessage = "<p style='color:red;'>Only Valid Mail</p>";
@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     }
     // password Validation //
     if (empty($password)) {
-        $errorMessage = "<p style='color:red;'>please say something</p>";
+        $errorMessage = "<p style='color:red;'>Please Say Something</p>";
         echo $errorMessage;
     } elseif ($passwordRegex) {
         $errorMessage = "<p style='color:red;'>its Not Valid</p>";
@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     }
     // confirmPassword validation //
     if (empty($confirmPassword)) {
-        $errorMessage = "<p style='color:red;'>please say something</p>";
+        $errorMessage = "<p style='color:red;'>Please Say Something</p>";
         echo $errorMessage;
     } elseif ($password !== $confirmPassword) {
         $errorMessage = "<p style='color:red;'>its not same</p>";
