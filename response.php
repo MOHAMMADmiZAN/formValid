@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         $errorMessage = "<span style='color:red;'>Please Enter Your Confirm Password</span>";
         echo $br . $errorMessage;
     } elseif ($password !== $confirmPassword) {
-        $errorMessage = "<span style='color:red;'>Its not same</span>";
+        $errorMessage = "<span style='color:red;'>Its Not Same</span>";
         echo $br . $errorMessage;
     } elseif ($password === $confirmPassword && $passwordRegex) {
         $errorMessage = "<span style='color:red;'>Its Not Valid</span>";
