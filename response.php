@@ -17,47 +17,47 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         echo $br . $errorMessage;
     } else if ($nameRegex) {
         $errorMessage = "<span style='color:red;'>Only alphabets and whitespace are allowed.</span>";
-        echo $br.$errorMessage;
+        echo $br . $errorMessage;
     } else {
 
-        echo $br."Your Name : " . $name;
+        echo $br . "Your Name : " . $name;
     }
     // email validation //
     if (empty($email)) {
         $errorMessage = "<span style='color:red;'>Please Enter Your Email</span>";
-        echo $br.$errorMessage;
+        echo $br . $errorMessage;
     } elseif ($emailRegex) {
         $errorMessage = "<span style='color:red;'>Only Valid Mail</span>";
-        echo $br.$errorMessage;
+        echo $br . $errorMessage;
     } else {
 
-        echo $br."Your Email Address is : " . $email;
+        echo $br . "Your Email Address is : " . $email;
     }
     // password Validation //
     if (empty($password)) {
         $errorMessage = "<span style='color:red;'>Please Enter Your Password</span>";
-        echo $br.$errorMessage;
+        echo $br . $errorMessage;
     } elseif ($passwordRegex) {
         $errorMessage = "<span style='color:red;'>Its Not Valid</span>";
-        echo $br.$errorMessage;
+        echo $br . $errorMessage;
 
     } else {
 
-        echo $br."Your Password : " . $password;
+        echo $br . "Your Password : " . $password;
     }
     // confirmPassword validation //
     if (empty($confirmPassword)) {
         $errorMessage = "<span style='color:red;'>Please Enter Your Password</span>";
-        echo $br.$errorMessage;
+        echo $br . $errorMessage;
     } elseif ($password !== $confirmPassword) {
         $errorMessage = "<span style='color:red;'>Its not same</span>";
-        echo $br.$errorMessage;
+        echo $br . $errorMessage;
     } elseif ($password === $confirmPassword && $passwordRegex) {
         $errorMessage = "<span style='color:red;'>Its Not Valid</span>";
-        echo $br.$errorMessage;
+        echo $br . $errorMessage;
     } else {
 
-        echo $br."<span style='color: green'>Done!</span>";
+        echo $br . "<span style='color: green'>Done!</span>";
     }
 
 } else {
