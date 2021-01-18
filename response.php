@@ -4,23 +4,22 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     $email = $_POST["email"];
     $password = $_POST["password"];
     $confirmPassword = $_POST["confirmPassword"];
-    $gender = $_POST["gender"];
     $submit = $_POST["submit"];
     $nameRegex = !preg_match("/^([a-zA-Z' ]+)$/i", $name);
     $emailRegex = !preg_match("/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,10})$/", $email);
     $passwordRegex = !preg_match("/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,100}$/", $password);
     $br = "<br>";
     //name Validation //
-
+    echo "<h1>Your Input :</h1>";
     if (empty($name)) {
         $errorMessage = "<span style='color:red;'>Please Enter Your Name</span>";
-        echo $br . $errorMessage;
+        echo $errorMessage;
     } else if ($nameRegex) {
         $errorMessage = "<span style='color:red;'>Only alphabets and whitespace are allowed.</span>";
-        echo $br . $errorMessage;
+        echo $errorMessage;
     } else {
 
-        echo $br . "Your Name : " . $name;
+        echo "Your Name : " . $name;
     }
     // email validation //
     if (empty($email)) {
@@ -59,14 +58,14 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 
         echo $br . "<span style='color: green'>Done!</span>";
     }
-    if (isset($gender)){
+    if (isset($_POST["gender"])) {
+        $gender = $_POST["gender"];
 
         echo $br . "Your Gender is " . $gender;
 
     } else {
         $errorMessage = "<span style='color:red;'>Select Your Gender</span>";
         echo $br . $errorMessage;
-
 
     }
 
