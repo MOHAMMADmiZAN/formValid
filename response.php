@@ -61,10 +61,10 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     if (isset($_POST["gender"])) {
         $gender = $_POST["gender"];
 
-        echo $br . "Your Gender is " . $gender;
+        echo $br . "Your Gender Is " . $gender;
 
     } else {
-        $errorMessage = "<span style='color:red;'>Select Your Gender</span>";
+        $errorMessage = "<span style='color:red;'> Please Select Your Gender </span>";
         echo $br . $errorMessage;
 
     }
