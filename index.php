@@ -28,10 +28,9 @@
                     <label for="re-password">CONFIRM_PASSWORD:</label>
                     <input type="password" id="re-password" placeholder=" Confirm Your Password" name="confirmPassword">
                     <div class="selectGender displayBlock">Select Your Gender :
-                        <input type="radio" id="gender" placeholder="male" name="gender" value="male" class="widthAuto"
-                               checked>
+                        <input type="radio" id="gender" placeholder="male" name="gender" value="Male" class="widthAuto" checked>
                         <label for="gender" class="displayInlineBlock">Male</label>
-                        <input type="radio" id="genderF" placeholder="female" value="female" name="gender"
+                        <input type="radio" id="genderF" placeholder="female" value="Female" name="gender"
                                class="widthAuto">
                         <label for="genderF" class="displayInlineBlock">Female</label>
                     </div>

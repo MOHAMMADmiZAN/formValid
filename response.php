@@ -59,6 +59,16 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 
         echo $br . "<span style='color: green'>Done!</span>";
     }
+    if (isset($gender)){
+
+        echo $br . "Your Gender is " . $gender;
+
+    } else {
+        $errorMessage = "<span style='color:red;'>Select Your Gender</span>";
+        echo $br . $errorMessage;
+
+
+    }
 
 } else {
     header("Location:index.php");
