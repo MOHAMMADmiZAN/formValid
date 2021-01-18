@@ -51,7 +51,6 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     } elseif ($password !== $confirmPassword) {
         $errorMessage = "<span style='color:red;'>Its Not Same</span>";
         echo $br . $errorMessage;
-
     } elseif ($password === $confirmPassword && $passwordRegex) {
         $errorMessage = "<span style='color:red;'>Its Not Valid</span>";
         echo $br . $errorMessage;
