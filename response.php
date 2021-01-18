@@ -9,54 +9,55 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     $nameRegex = !preg_match("/^([a-zA-Z' ]+)$/i", $name);
     $emailRegex = !preg_match("/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,10})$/", $email);
     $passwordRegex = !preg_match("/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,100}$/", $password);
+    $br = "<br>";
     //name Validation //
 
     if (empty($name)) {
-        $errorMessage = "<p style='color:red;'>Please Say Something</p>";
-        echo $errorMessage;
+        $errorMessage = "<span style='color:red;'>Please Enter Your Name</span>";
+        echo $br . $errorMessage;
     } else if ($nameRegex) {
-        $errorMessage = "<p style='color:red;'>Only alphabets and whitespace are allowed.</p>";
-        echo $errorMessage;
+        $errorMessage = "<span style='color:red;'>Only alphabets and whitespace are allowed.</span>";
+        echo $br.$errorMessage;
     } else {
-        echo "</br>";
-        echo $name;
+
+        echo $br."Your Name : " . $name;
     }
     // email validation //
     if (empty($email)) {
-        $errorMessage = "<p style='color:red;'>Please Say Something</p>";
-        echo $errorMessage;
+        $errorMessage = "<span style='color:red;'>Please Enter Your Email</span>";
+        echo $br.$errorMessage;
     } elseif ($emailRegex) {
-        $errorMessage = "<p style='color:red;'>Only Valid Mail</p>";
-        echo $errorMessage;
+        $errorMessage = "<span style='color:red;'>Only Valid Mail</span>";
+        echo $br.$errorMessage;
     } else {
-        echo "</br>";
-        echo $email;
+
+        echo $br."Your Email Address is : " . $email;
     }
     // password Validation //
     if (empty($password)) {
-        $errorMessage = "<p style='color:red;'>Please Say Something</p>";
-        echo $errorMessage;
+        $errorMessage = "<span style='color:red;'>Please Enter Your Password</span>";
+        echo $br.$errorMessage;
     } elseif ($passwordRegex) {
-        $errorMessage = "<p style='color:red;'>its Not Valid</p>";
-        echo $errorMessage;
+        $errorMessage = "<span style='color:red;'>Its Not Valid</span>";
+        echo $br.$errorMessage;
 
     } else {
-        echo "</br>";
-        echo $password;
+
+        echo $br."Your Password : " . $password;
     }
     // confirmPassword validation //
     if (empty($confirmPassword)) {
-        $errorMessage = "<p style='color:red;'>Please Say Something</p>";
-        echo $errorMessage;
+        $errorMessage = "<span style='color:red;'>Please Enter Your Password</span>";
+        echo $br.$errorMessage;
     } elseif ($password !== $confirmPassword) {
-        $errorMessage = "<p style='color:red;'>its not same</p>";
-        echo $errorMessage;
+        $errorMessage = "<span style='color:red;'>Its not same</span>";
+        echo $br.$errorMessage;
     } elseif ($password === $confirmPassword && $passwordRegex) {
-        $errorMessage = "<p style='color:red;'>its Not Valid</p>";
-        echo $errorMessage;
+        $errorMessage = "<span style='color:red;'>Its Not Valid</span>";
+        echo $br.$errorMessage;
     } else {
-        echo "</br>";
-        echo "Its Awesome";
+
+        echo $br."<span style='color: green'>Done!</span>";
     }
 
 } else {
