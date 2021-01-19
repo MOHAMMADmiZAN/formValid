@@ -5,7 +5,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     $password = $_POST["password"];
     $confirmPassword = $_POST["confirmPassword"];
     $submit = $_POST["submit"];
-    $nameRegex = !preg_match("/^([a-zA-Z' ]+)$/i", $name);
+    $nameRegex = !preg_match("/^([a-zA-Z' ]+)$/", $name);
     $emailRegex = !preg_match("/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,10})$/", $email);
     $passwordRegex = !preg_match("/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,20}$/", $password);
     $cell = $_POST["cell"];
