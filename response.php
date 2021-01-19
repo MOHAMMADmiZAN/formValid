@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 
         echo $br . "<span style='color: green'>Password Match!</span>";
     }
-    // cell-phone validation //
+    // cellPhone validation //
     if (empty($cell)){
         $errorMessage = "<span style='color:red;'>Please Enter Your Cell Number</span>";
         echo $br . $errorMessage;
