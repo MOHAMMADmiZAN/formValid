@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         $errorMessage = "<span style='color:red;'>Please Enter Your Email</span>";
         echo $br . $errorMessage;
     } elseif ($emailRegex) {
-        $errorMessage = "<span style='color:red;'>Only Valid Mail</span>";
+        $errorMessage = "<span style='color:red;'>Please Type Valid Mail</span>";
         echo $br . $errorMessage;
     } else {
 
@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         $errorMessage = "<span style='color:red;'>Please Enter Your Password</span>";
         echo $br . $errorMessage;
     } elseif ($passwordRegex) {
-        $errorMessage = "<span style='color:red;'>Its Not Valid</span>";
+        $errorMessage = "<span style='color:red;'>Please Type Valid Password</span>";
         echo $br . $errorMessage;
 
     } else {
@@ -51,10 +51,10 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         $errorMessage = "<span style='color:red;'>Please Enter Your Confirm Password</span>";
         echo $br . $errorMessage;
     } elseif ($password !== $confirmPassword) {
-        $errorMessage = "<span style='color:red;'>Its Not Same</span>";
+        $errorMessage = "<span style='color:red;'>Please Type Same Password</span>";
         echo $br . $errorMessage;
     } elseif ($password === $confirmPassword && $passwordRegex) {
-        $errorMessage = "<span style='color:red;'>Its Not Valid</span>";
+        $errorMessage = "<span style='color:red;'>Please Type Valid Password</span>";
         echo $br . $errorMessage;
     } else {
 
@@ -65,7 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         $errorMessage = "<span style='color:red;'>Please Enter Your Cell Number</span>";
         echo $br . $errorMessage;
     } else if ($cellRegex) {
-        $errorMessage = "<span style='color:red;'>Type Valid Number</span>";
+        $errorMessage = "<span style='color:red;'>Please Type Valid Number</span>";
         echo $br . $errorMessage;
     } else {
         echo $br . "Your Cell Number : " . $cell;

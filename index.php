@@ -22,7 +22,7 @@
                     <label for="name">FULL_NAME:</label>
                     <input type="text" id="name" placeholder="Type Your Name" name="name">
                     <label for="email">EMAIL: </label>
-                    <input type="email" id="email" placeholder=" Type Your Email" name="email" required>
+                    <input type="email" id="email" placeholder=" Type Your Email" name="email">
                     <label for="password">PASSWORD:</label>
                     <input type="password" id="password" placeholder=" Type Your Password" name="password">
                     <label for="re-password">CONFIRM_PASSWORD:</label>
