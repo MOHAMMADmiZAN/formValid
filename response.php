@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     $submit = $_POST["submit"];
     $nameRegex = !preg_match("/^([a-zA-Z' ]+)$/i", $name);
     $emailRegex = !preg_match("/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,10})$/", $email);
-    $passwordRegex = !preg_match("/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,100}$/", $password);
+    $passwordRegex = !preg_match("/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,20}$/", $password);
     $br = "<br>";
     //name Validation //
     echo "<h1>Your Input :</h1>";
