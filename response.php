@@ -56,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         echo $br . $errorMessage;
     } else {
 
-        echo $br . "<span style='color: green'>Done!</span>";
+        echo $br . "<span style='color: green'>Password Match!</span>";
     }
     if (isset($_POST["gender"])) {
         $gender = $_POST["gender"];
