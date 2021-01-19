@@ -28,7 +28,7 @@
                     <label for="re-password">CONFIRM_PASSWORD:</label>
                     <input type="password" id="re-password" placeholder=" Confirm Your Password" name="confirmPassword">
                     <label for="cell">CELL_NUMBER: </label>
-                    <input type="number" id="cell" placeholder="Type Your Cell Number" name="cell">
+                    <input type="text" id="cell" placeholder="Type Your Cell Number" name="cell">
                     <div class="selectGender displayBlock">Select Your Gender :
                         <input type="radio" id="gender" name="gender" class="widthAuto" value="Male">
                         <label for="gender" class="displayInlineBlock">Male</label>
