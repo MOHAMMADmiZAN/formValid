@@ -22,7 +22,7 @@ h1, h2, h3, h5, h6, p {
 body {
     overflow-x: hidden;
     position: relative;
-    max-height: 100vh;
+    height: 100vh;
     background: url(../images/elephant-1822636_1920.jpg) no-repeat center;
     -webkit-background-size: cover;
     background-size: cover;
