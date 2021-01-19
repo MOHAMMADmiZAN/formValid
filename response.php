@@ -8,6 +8,8 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     $nameRegex = !preg_match("/^([a-zA-Z' ]+)$/i", $name);
     $emailRegex = !preg_match("/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,10})$/", $email);
     $passwordRegex = !preg_match("/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,20}$/", $password);
+    $cell = $_POST["cell"];
+    $cellRegex = !preg_match("/^([+\d]{11,16})$/",$cell);
     $br = "<br>";
     //name Validation //
     echo "<h1>Your Input :</h1>";
@@ -58,6 +60,19 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 
         echo $br . "<span style='color: green'>Password Match!</span>";
     }
+    // cell-phone validation //
+    if (empty($cell)){
+        $errorMessage = "<span style='color:red;'>Please Enter Your Cell Number</span>";
+        echo $br . $errorMessage;
+    }
+    else if($cellRegex){
+        $errorMessage = "<span style='color:red;'>Type Valid Number</span>";
+        echo $br . $errorMessage;
+    }
+    else {
+        echo $br . "Your Cell Number : ".$cell;
+    }
+ // Gender Validation //
     if (isset($_POST["gender"])) {
         $gender = $_POST["gender"];
         echo $br . "Your Gender Is " . $gender;

@@ -22,11 +22,13 @@
                     <label for="name">FULL_NAME:</label>
                     <input type="text" id="name" placeholder="Type Your Name" name="name">
                     <label for="email">EMAIL: </label>
-                    <input type="email" id="email" placeholder=" Type Your Email" name="email">
+                    <input type="email" id="email" placeholder=" Type Your Email" name="email" required>
                     <label for="password">PASSWORD:</label>
                     <input type="password" id="password" placeholder=" Type Your Password" name="password">
                     <label for="re-password">CONFIRM_PASSWORD:</label>
                     <input type="password" id="re-password" placeholder=" Confirm Your Password" name="confirmPassword">
+                    <label for="cell">CELL_NUMBER: </label>
+                    <input type="number" id="cell" placeholder="Type Your Cell Number" name="cell">
                     <div class="selectGender displayBlock">Select Your Gender :
                         <input type="radio" id="gender" name="gender" class="widthAuto" value="Male">
                         <label for="gender" class="displayInlineBlock">Male</label>
