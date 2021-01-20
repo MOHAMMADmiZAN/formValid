@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 
         echo $br . "<span style='color: green'>Password Match!</span>";
     }
-    // cellPhone validation //
+// cellPhone validation //
     if (empty($cell)) {
         $errorMessage = "<span style='color:red;'>Please Enter Your Cell Number</span>";
         echo $br . $errorMessage;
@@ -70,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     } else {
         echo $br . "Your Cell Number : " . $cell;
     }
-    // Gender Validation //
+// Gender Validation //
     if (isset($_POST["gender"])) {
         $gender = $_POST["gender"];
         echo $br . "Your Gender Is " . $gender;
