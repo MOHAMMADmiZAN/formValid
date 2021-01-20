@@ -19,17 +19,17 @@
         <div class="row">
             <div class="col-lg-12">
                 <form action="response.php" method="post">
-                    <label for="name">FullName:</label>
+                    <label for="name">fullName:</label>
                     <input type="text" id="name" placeholder="Type Your Name" name="name">
-                    <label for="email">Email: </label>
+                    <label for="email">email: </label>
                     <input type="email" id="email" placeholder=" Type Your Email" name="email">
-                    <label for="password">Password:</label>
+                    <label for="password">password:</label>
                     <input type="password" id="password" placeholder=" Type Your Password" name="password">
-                    <label for="re-password">ConfirmPassword:</label>
+                    <label for="re-password">confirmPassword:</label>
                     <input type="password" id="re-password" placeholder=" Confirm Your Password" name="confirmPassword">
-                    <label for="cell">CellNumber: </label>
+                    <label for="cell">cellNumber: </label>
                     <input type="text" id="cell" placeholder="Type Your Cell Number" name="cell">
-                    <div class="selectGender displayBlock">SelectYourGender :
+                    <div class="selectGender displayBlock">selectYourGender :
                         <input type="radio" id="gender" name="gender" class="widthAuto" value="Male">
                         <label for="gender" class="displayInlineBlock">Male</label>
                         <input type="radio" id="genderF" name="gender" value="Female" class="widthAuto">
