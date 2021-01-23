@@ -4,7 +4,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-weight: 900!important;
+    font-weight: 900 !important;
 }
 
 ol, ul, li {
@@ -23,7 +23,7 @@ h1, h2, h3, h5, h6, p {
 body {
     overflow-x: hidden;
     position: relative;
-    width:100%;
+    width: 100%;
     max-height: 100vh;
     background: url(../images/elephant-1822636_1920.jpg) no-repeat center;
     background-size: cover;
@@ -40,6 +40,8 @@ body {
 .displayBlock {
     display: block;
 }
+
+
 
 form label {
     display: block;
@@ -62,10 +64,11 @@ form input {
 
 }
 
+
 form button {
     display: block !important;
     margin: 10px;
-    font-size: 16px ;
+    font-size: 16px;
     font-family: 'Fira Code', monospace;
 
 

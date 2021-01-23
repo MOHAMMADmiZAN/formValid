@@ -12,6 +12,8 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     $cell = $_POST["cell"];
     $cellRegex = !preg_match("/^([+\d]{11,16})$/", $cell);
     $br = "<br>";
+
+
     //name Validation //
     echo "<h1>Your Input :</h1>";
     if (empty($name)) {
