@@ -1,4 +1,9 @@
+<?php
+session_start();
+?>
+
 <!doctype html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -21,12 +26,52 @@
                 <form action="response.php" method="post">
                     <label for="name">fullName:</label>
                     <input type="text" id="name" placeholder="Type Your Name" name="name">
+                    <?php
+                    if (isset($_SESSION["errorMessageName"])) {
+                        echo "Error: " . $_SESSION["errorMessageName"];
+                        unset($_SESSION["errorMessageName"]);
+                    } else if (isset($_SESSION["errorMessageRegexName"])) {
+                        echo "Error: " . $_SESSION["errorMessageRegexName"];
+                        unset($_SESSION["errorMessageRegexName"]);
+                    }
+                    ?>
                     <label for="email">email: </label>
                     <input type="email" id="email" placeholder=" Type Your Email" name="email">
+                    <?php
+                    if (isset($_SESSION["errorMessageMail"])) {
+                        echo "Error: " . $_SESSION["errorMessageMail"];
+                        unset($_SESSION["errorMessageMail"]);
+                    } else if (isset($_SESSION["errorMessageRegexMail"])) {
+                        echo "Error: " . $_SESSION["errorMessageRegexMail"];
+                        unset($_SESSION["errorMessageRegexMail"]);
+                    }
+                    ?>
                     <label for="password">password:</label>
                     <input type="password" id="password" placeholder=" Type Your Password" name="password">
+                    <?php
+
+                    if (isset($_SESSION["errorMessagePassword"])) {
+                        echo "Error: " . $_SESSION["errorMessagePassword"];
+                        unset($_SESSION["errorMessagePassword"]);
+                    } else if (isset($_SESSION["errorMessageRegexPassword"])) {
+                        echo "Error: " . $_SESSION["errorMessageRegexPassword"];
+                        unset($_SESSION["errorMessageRegexPassword"]);
+                    }
+                    ?>
                     <label for="re-password">confirmPassword:</label>
                     <input type="password" id="re-password" placeholder=" Confirm Your Password" name="confirmPassword">
+                    <?php
+                    if (isset($_SESSION["errorMessageConfirmPassword"])) {
+                        echo "Error: " . $_SESSION["errorMessageConfirmPassword"];
+                        unset($_SESSION["errorMessageConfirmPassword"]);
+                    } else if (isset($_SESSION["errorMessageConfirmPasswordNotMatch"])) {
+                        echo "Error: " . $_SESSION["errorMessageConfirmPasswordNotMatch"];
+                        unset($_SESSION["errorMessageConfirmPasswordNotMatch"]);
+
+                    } else if (isset($_SESSION["errorMessageConfirmPasswordRegex"]))
+                        echo "Error: " . $_SESSION["errorMessageConfirmPasswordRegex"];
+                    unset($_SESSION["errorMessageConfirmPasswordRegex"]);
+                    ?>
                     <label for="cell">cellNumber: </label>
                     <input type="text" id="cell" placeholder="Type Your Cell Number" name="cell">
                     <div class="selectGender displayBlock">selectYourGender :

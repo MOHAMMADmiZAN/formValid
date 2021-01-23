@@ -1,4 +1,5 @@
 <?php
+session_start();
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
     $name = $_POST["name"];
     $email = $_POST["email"];
@@ -14,33 +15,37 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     //name Validation //
     echo "<h1>Your Input :</h1>";
     if (empty($name)) {
-        $errorMessage = "<span style='color:red;'>Please Enter Your Name</span>";
-        echo $errorMessage;
+        $_SESSION["errorMessageName"] = "<span style='color:red;'>Please Enter Your Name</span>";
+        header("Location:index.php");
+
     } else if ($nameRegex) {
-        $errorMessage = "<span style='color:red;'>Only alphabets and whitespace are allowed.</span>";
-        echo $errorMessage;
+        $_SESSION["errorMessageRegexName"] = "<span style='color:red;'>Only alphabets and whitespace are allowed.</span>";
+        header("Location:index.php");
+
     } else {
 
         echo "Your Name : " . $name;
     }
     // email validation //
     if (empty($email)) {
-        $errorMessage = "<span style='color:red;'>Please Enter Your Email</span>";
-        echo $br . $errorMessage;
+        $_SESSION["errorMessageMail"] = "<span style='color:red;'>Please Enter Your Email</span>";
+        header("Location:index.php");
     } elseif ($emailRegex) {
-        $errorMessage = "<span style='color:red;'>Please Type Valid Mail</span>";
-        echo $br . $errorMessage;
+        $_SESSION["errorMessageRegexMail"] = "<span style='color:red;'>Please Type Valid Mail</span>";
+        header("Location:index.php");
+
     } else {
 
         echo $br . "Your Email Address is : " . $email;
     }
     // password Validation //
     if (empty($password)) {
-        $errorMessage = "<span style='color:red;'>Please Enter Your Password</span>";
-        echo $br . $errorMessage;
+        $_SESSION["errorMessagePassword"] = "<span style='color:red;'>Please Enter Your Password</span>";
+        header("Location:index.php");
+
     } elseif ($passwordRegex) {
-        $errorMessage = "<span style='color:red;'>Please Type Valid Password</span>";
-        echo $br . $errorMessage;
+        $_SESSION["errorMessageRegexPassword"] = "<span style='color:red;'>Please Type Valid Password</span>";
+        header("Location:index.php");
 
     } else {
 
@@ -48,14 +53,15 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     }
     // confirmPassword validation //
     if (empty($confirmPassword)) {
-        $errorMessage = "<span style='color:red;'>Please Enter Your Confirm Password</span>";
-        echo $br . $errorMessage;
+        $_SESSION["errorMessageConfirmPassword"] = "<span style='color:red;'>Please Enter Your Confirm Password</span>";
+        header("Location:index.php");
     } elseif ($password !== $confirmPassword) {
-        $errorMessage = "<span style='color:red;'>Please Type Same Password</span>";
-        echo $br . $errorMessage;
+        $_SESSION["errorMessageConfirmPasswordNotMatch"] = "<span style='color:red;'>Please Type Same Password</span>";
+        header("Location:index.php");
     } elseif ($password === $confirmPassword && $passwordRegex) {
-        $errorMessage = "<span style='color:red;'>Please Type Valid Password</span>";
-        echo $br . $errorMessage;
+        $_SESSION["errorMessageConfirmPasswordRegex"] = "<span style='color:red;'>Please Type Valid Password</span>";
+        header("Location:index.php");
+
     } else {
 
         echo $br . "<span style='color: green'>Password Match!</span>";
