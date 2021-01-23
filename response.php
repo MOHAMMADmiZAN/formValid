@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         $_SESSION["errorMessageMail"] = "<span style='color:red;'>Please Enter Your Email</span>";
         header("Location:index.php");
     } elseif ($emailRegex) {
-        $_SESSION["errorMessageRegexMail"] = "<span style='color:red;'>Please Type Valid Mail</span>";
+        $_SESSION["errorMessageRegexMail"] = "<span style='color:red;'>Please Type Valid Email</span>";
         header("Location:index.php");
 
     } else {
