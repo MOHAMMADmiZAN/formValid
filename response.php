@@ -68,11 +68,11 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     }
 // cellPhone validation //
     if (empty($cell)) {
-        $errorMessage = "<span style='color:red;'>Please Enter Your Cell Number</span>";
-        echo $br . $errorMessage;
+        $_SESSION["errorMessageCell"] = "<span style='color:red;'>Please Enter Your Cell Number</span>";
+        header("Location:index.php");
     } else if ($cellRegex) {
-        $errorMessage = "<span style='color:red;'>Please Type Valid Number</span>";
-        echo $br . $errorMessage;
+        $_SESSION["errorMessageCellRegex"] = "<span style='color:red;'>Please Type Valid Number</span>";
+        header("Location:index.php");
     } else {
         echo $br . "Your Cell Number : " . $cell;
     }
@@ -82,8 +82,8 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         echo $br . "Your Gender Is " . $gender;
 
     } else {
-        $errorMessage = "<span style='color:red;'> Please Select Your Gender </span>";
-        echo $br . $errorMessage;
+        $_SESSION["errorMessageGender"] = "<span style='color:red;'> Please Select Your Gender </span>";
+        header("Location:index.php");
 
     }
 

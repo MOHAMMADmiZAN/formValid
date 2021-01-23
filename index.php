@@ -68,18 +68,35 @@ session_start();
                         echo "Error: " . $_SESSION["errorMessageConfirmPasswordNotMatch"];
                         unset($_SESSION["errorMessageConfirmPasswordNotMatch"]);
 
-                    } else if (isset($_SESSION["errorMessageConfirmPasswordRegex"]))
+                    } else if (isset($_SESSION["errorMessageConfirmPasswordRegex"])) {
                         echo "Error: " . $_SESSION["errorMessageConfirmPasswordRegex"];
-                    unset($_SESSION["errorMessageConfirmPasswordRegex"]);
+                        unset($_SESSION["errorMessageConfirmPasswordRegex"]);
+                    }
                     ?>
                     <label for="cell">cellNumber: </label>
                     <input type="text" id="cell" placeholder="Type Your Cell Number" name="cell">
+                    <?php
+                    if (isset($_SESSION["errorMessageCell"])) {
+                        echo "Error: " . $_SESSION["errorMessageCell"];
+                        unset($_SESSION["errorMessageCell"]);
+                    } else if (isset($_SESSION["errorMessageCellRegex"])) {
+                        echo "Error: " . $_SESSION["errorMessageCellRegex"];
+                        unset($_SESSION["errorMessageCellRegex"]);
+                    }
+                    ?>
                     <div class="selectGender displayBlock">selectYourGender :
                         <input type="radio" id="gender" name="gender" class="widthAuto" value="Male">
                         <label for="gender" class="displayInlineBlock">Male</label>
                         <input type="radio" id="genderF" name="gender" value="Female" class="widthAuto">
                         <label for="genderF" class="displayInlineBlock">Female</label>
+                        <?php
+                        if (isset($_SESSION["errorMessageGender"])){
+                            echo "<span style='color:black;'>Error:</span> " . $_SESSION["errorMessageGender"];
+                            unset($_SESSION["errorMessageGender"]);
+                        }
+                        ?>
                     </div>
+
                     <button type="submit" name="submit" class="btn btn-primary">SUBMIT</button>
                 </form>
             </div>
