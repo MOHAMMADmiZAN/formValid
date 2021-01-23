@@ -5,6 +5,7 @@
     padding: 0;
     box-sizing: border-box;
     font-weight: 900 !important;
+
 }
 
 ol, ul, li {
@@ -40,8 +41,9 @@ body {
 .displayBlock {
     display: block;
 }
-
-
+.errorMessageInput {
+    border: 2px solid red !important;
+}
 
 form label {
     display: block;
@@ -63,9 +65,8 @@ form input {
     border-radius: 5px;
 
 }
- .errorMessageInput {
-    border: 2px solid red!important;
-}
+
+
 
 form button {
     display: block !important;
