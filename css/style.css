@@ -59,7 +59,7 @@ form input {
     padding: 5px 10px;
     font-family: 'Fira Code', monospace;
     font-size: 16px;
-    border: 2px solid #444444;
+    border: 2px solid red;
     border-radius: 5px;
 
 }
