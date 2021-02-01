@@ -27,7 +27,9 @@ session_start();
                 <form action="response.php" method="post">
                     <label for="name">fullName:</label>
                     <input type="text" id="name"
-                           placeholder="Type Your Name" <?php if (isset($_SESSION["errorMessageName"]) || isset($_SESSION["errorMessageRegexName"])) print("class='errorMessageInput'") ?>
+                           placeholder="Type Your Name" <?php if (isset($_SESSION["errorMessageName"]) || isset($_SESSION["errorMessageRegexName"])) {
+                        print("class='errorMessageInput'");
+                    } ?>
                            name="name"
                     >
                     <?php
@@ -41,7 +43,9 @@ session_start();
                     ?>
                     <label for="email">email: </label>
                     <input type="email" id="email" placeholder=" Type Your Email"
-                           name="email" <?php if (isset($_SESSION["errorMessageMail"]) || isset($_SESSION["errorMessageRegexMail"])) print("class='errorMessageInput'") ?>>
+                           name="email" <?php if (isset($_SESSION["errorMessageMail"]) || isset($_SESSION["errorMessageRegexMail"])) {
+                        print("class='errorMessageInput'");
+                    } ?>>
                     <?php
                     if (isset($_SESSION["errorMessageMail"])) {
                         echo "Error: " . $_SESSION["errorMessageMail"];
@@ -53,7 +57,9 @@ session_start();
                     ?>
                     <label for="password">password:</label>
                     <input type="password" id="password" placeholder=" Type Your Password"
-                           name="password" <?php if (isset($_SESSION["errorMessagePassword"]) || isset($_SESSION["errorMessageRegexPassword"])) print("class='errorMessageInput'") ?>>
+                           name="password" <?php if (isset($_SESSION["errorMessagePassword"]) || isset($_SESSION["errorMessageRegexPassword"])) {
+                        print("class='errorMessageInput'");
+                    } ?>>
                     <?php
 
                     if (isset($_SESSION["errorMessagePassword"])) {
@@ -66,7 +72,9 @@ session_start();
                     ?>
                     <label for="re-password">confirmPassword:</label>
                     <input type="password" id="re-password" placeholder=" Confirm Your Password"
-                           name="confirmPassword" <?php if (isset($_SESSION["errorMessageConfirmPassword"]) || isset($_SESSION["errorMessageConfirmPasswordNotMatch"]) || isset($_SESSION["errorMessageConfirmPasswordRegex"])) print("class='errorMessageInput'") ?>>
+                           name="confirmPassword" <?php if (isset($_SESSION["errorMessageConfirmPassword"]) || isset($_SESSION["errorMessageConfirmPasswordNotMatch"]) || isset($_SESSION["errorMessageConfirmPasswordRegex"])) {
+                        print("class='errorMessageInput'");
+                    } ?>>
                     <?php
                     if (isset($_SESSION["errorMessageConfirmPassword"])) {
                         echo "Error: " . $_SESSION["errorMessageConfirmPassword"];
@@ -82,7 +90,9 @@ session_start();
                     ?>
                     <label for="cell">cellNumber: </label>
                     <input type="text" id="cell" placeholder="Type Your Cell Number"
-                           name="cell"<?php if (isset($_SESSION["errorMessageCell"]) || isset($_SESSION["errorMessageCellRegex"])) print("class='errorMessageInput'") ?>>
+                           name="cell"<?php if (isset($_SESSION["errorMessageCell"]) || isset($_SESSION["errorMessageCellRegex"])) {
+                        print("class='errorMessageInput'");
+                    } ?>>
                     <?php
                     if (isset($_SESSION["errorMessageCell"])) {
                         echo "Error: " . $_SESSION["errorMessageCell"];
