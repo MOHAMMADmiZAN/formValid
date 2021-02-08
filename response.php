@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once 'dataBase.php';
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
     $name = $_POST["name"];
     $email = $_POST["email"];
@@ -15,20 +16,15 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 
 
     //name Validation //
-    echo "<h1>Your Input :</h1>";
     if (empty($name)) {
         $_SESSION["errorMessageName"] = "<span style='color:red;'>Please Enter Your Name</span>";
         header("Location:index.php");
 
-    } else if ($nameRegex) {
+    } elseif ($nameRegex) {
         $_SESSION["errorMessageRegexName"] = "<span style='color:red;'>Only alphabets and whitespace are allowed.</span>";
         header("Location:index.php");
 
-    } else {
-
-        echo "Your Name : " . $name;
-    }
-    // email validation //
+    } // email validation //
     if (empty($email)) {
         $_SESSION["errorMessageMail"] = "<span style='color:red;'>Please Enter Your Email</span>";
         header("Location:index.php");
@@ -36,11 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         $_SESSION["errorMessageRegexMail"] = "<span style='color:red;'>Please Type Valid Email</span>";
         header("Location:index.php");
 
-    } else {
-
-        echo $br . "Your Email Address is : " . $email;
-    }
-    // password Validation //
+    } // password Validation //
     if (empty($password)) {
         $_SESSION["errorMessagePassword"] = "<span style='color:red;'>Please Enter Your Password</span>";
         header("Location:index.php");
@@ -49,11 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         $_SESSION["errorMessageRegexPassword"] = "<span style='color:red;'>Please Type Valid Password</span>";
         header("Location:index.php");
 
-    } else {
-
-        echo $br . "Your Password : " . $password;
-    }
-    // confirmPassword validation //
+    } // confirmPassword validation //
     if (empty($confirmPassword)) {
         $_SESSION["errorMessageConfirmPassword"] = "<span style='color:red;'>Please Enter Your Confirm Password</span>";
         header("Location:index.php");
@@ -64,29 +52,32 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         $_SESSION["errorMessageConfirmPasswordRegex"] = "<span style='color:red;'>Please Type Valid Password</span>";
         header("Location:index.php");
 
-    } else {
-
-        echo $br . "<span style='color: green'>Password Match!</span>";
-    }
-// cellPhone validation //
+    } // cellPhone validation //
     if (empty($cell)) {
         $_SESSION["errorMessageCell"] = "<span style='color:red;'>Please Enter Your Cell Number</span>";
         header("Location:index.php");
-    } else if ($cellRegex) {
+    } elseif ($cellRegex) {
         $_SESSION["errorMessageCellRegex"] = "<span style='color:red;'>Please Type Valid Number</span>";
         header("Location:index.php");
-    } else {
-        echo $br . "Your Cell Number : " . $cell;
-    }
-// Gender Validation //
-    if (isset($_POST["gender"])) {
-        $gender = $_POST["gender"];
-        echo $br . "Your Gender Is " . $gender;
-
-    } else {
+    } // Gender Validation //
+    if (!isset($_POST["gender"])) {
         $_SESSION["errorMessageGender"] = "<span style='color:red;'> Please Select Your Gender </span>";
         header("Location:index.php");
 
+    } else {
+
+        $gender = $_POST["gender"];
+        $insert = "INSERT INTO users(fullName, email, password, confirmPassword, cellNumber, Gender) VALUES('$name','$email','$password','$confirmPassword','$cell','$gender')";
+        $db = mysqli_connect(HOST, USER, PASSWORD, DATABASE);
+        if (!$db) {
+            echo "Database Error";
+        }
+        $q = mysqli_query($db, $insert);
+        if ($q) {
+            echo "DATA INSERT";
+        } else {
+            echo " DATA ERROR";
+        }
     }
 
 } else {
