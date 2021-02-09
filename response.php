@@ -85,7 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         $gender = $_POST["gender"];
     }
     if (!isset($getName, $getPassword, $getConfirmPassword, $getCell, $gender, $getEmail)) {
-        echo ":::DATABASE:::";
+        echo "::::DATABASE::::";
     } else {
         $insert = "INSERT INTO users(fullName, email, password, confirmPassword, cellNumber, Gender) VALUES ('$getName','$getEmail','$getPassword','$getConfirmPassword','$getCell','$gender')";
         if (isset($dataBase)) {
