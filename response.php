@@ -46,11 +46,11 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         header("Location:index.php");
 
     } elseif ($passwordRegex) {
-        $_SESSION["errorMessageRegexPassword"] = "<span style='color:red;'>Please Type Valid Password</span>";
+        $_SESSION["errorMessageRegexPassword"] = "<span style='color:red; font-size: 13px;'>At Least 1 Upper case, Lower case, Numeric, and Special Character</span>";
         header("Location:index.php");
 
     } else {
-        $getPassword = $password;
+        $getPassword = password_hash($password, PASSWORD_DEFAULT);
     }
     // confirmPassword validation //
     if (empty($confirmPassword)) {
@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         $_SESSION["errorMessageConfirmPasswordNotMatch"] = "<span style='color:red;'>Please Type Same Password</span>";
         header("Location:index.php");
     } elseif ($password === $confirmPassword && $passwordRegex) {
-        $_SESSION["errorMessageConfirmPasswordRegex"] = "<span style='color:red;'>Please Type Valid Password</span>";
+        $_SESSION["errorMessageConfirmPasswordRegex"] = "<span style='color:red; font-size: 13px;'>At Least 1 Upper case, Lower case, Numeric, and Special Character</span>";
         header("Location:index.php");
 
     } else {
@@ -93,9 +93,9 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         }
         if (isset($dataQuery)) {
             if ($dataQuery) {
-                echo "DATA INSERT";
+                echo "<p style='color: green;'>DATA INSERT SUCCESSFUL</p>";
             } else {
-                echo "DATA ERROR";
+                echo "<p style='color: red;'>DATA INSERT ERROR</p>";
             }
         }
     }
