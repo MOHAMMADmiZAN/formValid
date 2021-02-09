@@ -87,7 +87,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     if (!isset($getName, $getPassword, $getConfirmPassword, $getCell, $gender, $getEmail)) {
         echo "::::DATABASE::::";
     } else {
-        $insert = "INSERT INTO users(fullName, email, password, confirmPassword, cellNumber, Gender) VALUES ('$getName','$getEmail','$getPassword','$getConfirmPassword','$getCell','$gender')";
+        $insert = "INSERT INTO users(fullName, email, password,cellNumber, Gender) VALUES ('$getName','$getEmail','$getPassword','$getCell','$gender')";
         if (isset($dataBase)) {
             $dataQuery = mysqli_query($dataBase, $insert);
         }
