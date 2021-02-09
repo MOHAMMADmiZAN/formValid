@@ -88,11 +88,11 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         echo ":::DATABASE:::";
     } else {
         $insert = "INSERT INTO users(fullName, email, password, confirmPassword, cellNumber, Gender) VALUES ('$getName','$getEmail','$getPassword','$getConfirmPassword','$getCell','$gender')";
-        if (isset($db)) {
-            $q = mysqli_query($db, $insert);
+        if (isset($dataBase)) {
+            $dataQuery = mysqli_query($dataBase, $insert);
         }
-        if (isset($q)) {
-            if ($q) {
+        if (isset($dataQuery)) {
+            if ($dataQuery) {
                 echo "DATA INSERT";
             } else {
                 echo "DATA ERROR";
