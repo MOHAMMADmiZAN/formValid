@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         header("Location:index.php");
 
     } elseif ($passwordRegex) {
-        $_SESSION["errorMessageRegexPassword"] = "<span style='color:red; font-size: 13px;'>At Least 1 Upper case, Lower case, Numeric, and Special Character</span>";
+        $_SESSION["errorMessageRegexPassword"] = "<span style='color:red; font-size: 14px;'>At least 1 upper case, lower case, numeric, and special Character</span>";
         header("Location:index.php");
 
     } else {
@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         $_SESSION["errorMessageConfirmPasswordNotMatch"] = "<span style='color:red;'>Please Type Same Password</span>";
         header("Location:index.php");
     } elseif ($password === $confirmPassword && $passwordRegex) {
-        $_SESSION["errorMessageConfirmPasswordRegex"] = "<span style='color:red; font-size: 13px;'>At Least 1 Upper case, Lower case, Numeric, and Special Character</span>";
+        $_SESSION["errorMessageConfirmPasswordRegex"] = "<span style='color:red; font-size: 14px;'>At least 1 upper case, lower case, numeric, and special Character</span>";
         header("Location:index.php");
 
     } else {
