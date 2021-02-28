@@ -95,7 +95,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
                 $duplicateAssoc = mysqli_fetch_assoc($duplicateCheckQuery);
                 if (isset($duplicateAssoc)) {
                     if ($duplicateAssoc['duplicates'] > 0) {
-                        echo "Email Already Found";
+                        echo "<p style='color: red;'>Email Already Found!</p>";
                     } else {
                         /// database insert query //
                         $insert = "INSERT INTO users(fullName, email, password,cellNumber, Gender) VALUES ('$getName','$getEmail','$getPassword','$getCell','$gender')";
