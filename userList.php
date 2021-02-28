@@ -1,6 +1,6 @@
 <?php
 require_once 'dataBase.php';
-$view = 'SELECT * FROM `users` ORDER BY `fullName` ASC ';
+$view = 'SELECT * FROM `users` ORDER BY `fullName`  ';
 if (isset($dataBase)) {
     $viewQuery = mysqli_query($dataBase, $view);
 } else {
@@ -28,7 +28,7 @@ if (isset($dataBase)) {
         </div>
         <div class="row">
             <div class="col-lg-12 m-auto">
-                <table class=" table table-bordered table-striped text-center">
+                <table class=" table table-bordered table-striped text-center table-secondary">
                     <tr>
                         <th>SL</th>
                         <th>FULL NAME</th>
@@ -41,10 +41,11 @@ if (isset($dataBase)) {
                         foreach ($viewQuery as $index => $user) { ?>
                             <tr>
                                 <td><?= ++$index ?></td>
-                                <td><?= $user['fullName']?></td>
-                                <td><?= $user['email']?></td>
-                                <td><?= $user['cellNumber']?></td>
-                                <td><a href="#" type="button" class="btn btn-warning">DELETE</a></td>
+                                <td><?= $user['fullName'] ?></td>
+                                <td><?= $user['email'] ?></td>
+                                <td><?= $user['cellNumber'] ?></td>
+                                <td><a href="userDelete.php?userId=<?= $user['id'] ?>" type="button"
+                                       class="btn btn-danger">DELETE</a></td>
                             </tr>
                         <?php } endif; ?>
                 </table>
