@@ -1,6 +1,6 @@
 <?php
 require_once 'dataBase.php';
-$view = 'SELECT * FROM `users` ORDER BY `id` DESC';
+$view = 'SELECT * FROM `users` ORDER BY `fullName` ASC ';
 if (isset($dataBase)) {
     $viewQuery = mysqli_query($dataBase, $view);
 } else {
