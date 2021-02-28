@@ -87,17 +87,34 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     if (!isset($getName, $getPassword, $getConfirmPassword, $getCell, $gender, $getEmail)) {
         echo "::::DATABASE::::";
     } else {
-        $insert = "INSERT INTO users(fullName, email, password,cellNumber, Gender) VALUES ('$getName','$getEmail','$getPassword','$getCell','$gender')";
+        ///duplicate check query ///
+        $duplicateCheck = "SELECT COUNT(*) as duplicates FROM `users` WHERE email = '$email' ";
         if (isset($dataBase)) {
-            $dataQuery = mysqli_query($dataBase, $insert);
-        }
-        if (isset($dataQuery)) {
-            if ($dataQuery) {
-                echo "<p style='color: green;'>DATA INSERT SUCCESSFUL</p>";
-            } else {
-                echo "<p style='color: red;'>DATA INSERT ERROR</p>";
+            $duplicateCheckQuery = mysqli_query($dataBase, $duplicateCheck);
+            if (isset($duplicateCheckQuery)) {
+                $duplicateAssoc = mysqli_fetch_assoc($duplicateCheckQuery);
+                if (isset($duplicateAssoc)) {
+                    if ($duplicateAssoc['duplicates'] > 0) {
+                        echo "Email Already Found";
+                    } else {
+                        /// database insert query //
+                        $insert = "INSERT INTO users(fullName, email, password,cellNumber, Gender) VALUES ('$getName','$getEmail','$getPassword','$getCell','$gender')";
+                        $dataQuery = mysqli_query($dataBase, $insert);
+                        if (isset($dataQuery)) {
+                            if ($dataQuery) {
+                                echo "<p style='color: green;'>DATA INSERT SUCCESSFUL</p>";
+                            } else {
+                                echo "<p style='color: red;'>DATA INSERT ERROR</p>";
+                            }
+                        }
+                    }
+                }
+
             }
+
         }
+
+
     }
 
 } else {
