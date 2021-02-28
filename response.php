@@ -92,10 +92,11 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         if (isset($dataBase)) {
             $duplicateCheckQuery = mysqli_query($dataBase, $duplicateCheck);
             if (isset($duplicateCheckQuery)) {
+                /// duplicate Assoc Query ///
                 $duplicateAssoc = mysqli_fetch_assoc($duplicateCheckQuery);
                 if (isset($duplicateAssoc)) {
                     if ($duplicateAssoc['duplicates'] > 0) {
-                        echo "<p style='color: red;'>Email Already Found!</p>";
+                        echo "<p style='color: red;'>EMAIL ALREADY FOUND!</p>";
                     } else {
                         /// database insert query //
                         $insert = "INSERT INTO users(fullName, email, password,cellNumber, Gender) VALUES ('$getName','$getEmail','$getPassword','$getCell','$gender')";
