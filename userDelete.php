@@ -5,7 +5,7 @@ $deletedId = $_GET['deletedId'];
 if (isset($dataBase)) {
     if (isset($id)) {
         // update query //
-        $update = "UPDATE `users` SET status = 2 WHERE `id` = '$id'";
+        $update = "UPDATE `users` SET `status` = 2 WHERE `id` = '$id'";
     }
     if (isset($update)) {
         $updateQuery = mysqli_query($dataBase, $update);
