@@ -1,6 +1,6 @@
 <?php
 require_once 'dataBase.php';
-$view = 'SELECT * FROM `users` ORDER BY `fullName`  ';
+$view = 'SELECT * FROM `users` WHERE status = 1 ORDER BY `fullName`  ';
 if (isset($dataBase)) {
     $viewQuery = mysqli_query($dataBase, $view);
 } else {
@@ -35,6 +35,7 @@ if (isset($dataBase)) {
                         <th>EMAIL</th>
                         <th>PHONE NUMBER</th>
                         <th>ACTION</th>
+                        <th>ACTION</th>
                     </tr>
                     <?php
                     if (isset($viewQuery)):
@@ -45,7 +46,9 @@ if (isset($dataBase)) {
                                 <td><?= $user['email'] ?></td>
                                 <td><?= $user['cellNumber'] ?></td>
                                 <td><a href="userDelete.php?userId=<?= $user['id'] ?>" type="button"
-                                       class="btn btn-danger">DELETE</a></td>
+                                       class="btn btn-warning">DELETE</a></td>
+                                <td><a href="userDelete.php?deletedId=<?= $user['id'] ?>" type="button"
+                                       class="btn btn-danger">PERMANENTLY DELETE</a></td>
                             </tr>
                         <?php } endif; ?>
                 </table>
