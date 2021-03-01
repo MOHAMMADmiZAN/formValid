@@ -17,6 +17,9 @@ if (isset($dataBase)) {
             echo "UPDATE NOT WORKING";
         }
     }
+
+
+
     if (isset($deletedId)) {
         /// delete query ///
         $delete = "DELETE FROM `users` WHERE `id` = '$deletedId'";
