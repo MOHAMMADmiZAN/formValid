@@ -23,7 +23,7 @@ if (isset($dataBase)) {
     <div class="row">
         <div class="col-lg-12">
             <div class="alert alert-info text-center mt-3" role="alert">
-                <h1>USER DESCRIPTION</h1>
+                <h1>USER DETAILS</h1>
             </div>
         </div>
         <div class="row">
@@ -46,9 +46,9 @@ if (isset($dataBase)) {
                                 <td><?= $user['email'] ?></td>
                                 <td><?= $user['cellNumber'] ?></td>
                                 <td><a href="userDelete.php?userId=<?= $user['id'] ?>" type="button"
-                                       class="btn btn-warning">DELETE</a></td>
-                                <td><a href="userDelete.php?deletedId=<?= $user['id'] ?>" type="button"
-                                       class="btn btn-danger">PERMANENTLY DELETE</a></td>
+                                       class="btn btn-warning"> TEMPORARY DELETE</a></td>
+                                <td><a data-id="<?= $user['id'] ?>" href="#" type="button"
+                                       class="btn btn-danger confirmDelete">PERMANENTLY DELETE</a></td>
                             </tr>
                         <?php } endif; ?>
                 </table>
@@ -57,10 +57,36 @@ if (isset($dataBase)) {
     </div>
 </div>
 
-
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
         crossorigin="anonymous"></script>
-<script src="js/script.js"></script>
+<script>
+    $('.confirmDelete').click(
+        function () {
+            let id = $(this).attr('data-id');
+            swal({
+                title: "Are you sure?",
+                text: "Once deleted, you will not be able to recover this  file!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        swal("Poof! Your Data has been deleted!", {
+                            icon: "success",
+                        });
+                        setTimeout(function () {
+                            window.location.href = "userDelete.php?deletedId=" + id;
+                        }, 1500)
+                    } else {
+                        swal("Your Data Will be safe!");
+                    }
+                });
+        })
+</script>
 </body>
 </html>
