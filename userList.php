@@ -1,6 +1,6 @@
 <?php
 require_once 'dataBase.php';
-$view = 'SELECT * FROM `users` WHERE status = 1 ORDER BY `fullName`  ';
+$view = "SELECT * FROM `users` WHERE status = 1 ORDER BY `fullName`";
 if (isset($dataBase)) {
     $viewQuery = mysqli_query($dataBase, $view);
 } else {
@@ -17,18 +17,19 @@ if (isset($dataBase)) {
     <title>UserList</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
 </head>
 <body>
 <div class="container">
     <div class="row">
         <div class="col-lg-12">
-            <div class="alert alert-info text-center mt-3" role="alert">
+            <div class="alert alert-primary text-center mt-3" role="alert">
                 <h1>USER DETAILS</h1>
             </div>
         </div>
         <div class="row">
             <div class="col-lg-12 m-auto">
-                <table class=" table table-bordered table-striped text-center table-secondary">
+                <table class=" table table-bordered table-striped text-center table-info">
                     <tr>
                         <th>SL</th>
                         <th>FULL NAME</th>
@@ -47,7 +48,7 @@ if (isset($dataBase)) {
                                 <td><?= $user['cellNumber'] ?></td>
                                 <td><a href="userDelete.php?userId=<?= $user['id'] ?>" type="button"
                                        class="btn btn-warning"> TEMPORARY DELETE</a></td>
-                                <td><a data-id="<?= $user['id'] ?>" href="#" type="button"
+                                <td><a data-id="<?= $user['id'] ?>" type="button"
                                        class="btn btn-danger confirmDelete">PERMANENTLY DELETE</a></td>
                             </tr>
                         <?php } endif; ?>
@@ -69,7 +70,7 @@ if (isset($dataBase)) {
             let id = $(this).attr('data-id');
             swal({
                 title: "Are you sure?",
-                text: "Once deleted, you will not be able to recover this  file!",
+                text: "Once deleted, you will not be able to recover this  Data!",
                 icon: "warning",
                 buttons: true,
                 dangerMode: true,
@@ -86,7 +87,8 @@ if (isset($dataBase)) {
                         swal("Your Data Will be safe!");
                     }
                 });
-        })
+        }
+    )
 </script>
 </body>
 </html>
