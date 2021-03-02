@@ -47,7 +47,7 @@ if (isset($dataBase)) {
                                 <td><?= $user['email'] ?></td>
                                 <td><?= $user['cellNumber'] ?></td>
                                 <td><a data-id="<?= $user['id'] ?>" type="button"
-                                       class="btn btn-success recoverUser">Recover User</a></td>
+                                       class="btn btn-success recoverUser">RECOVER USER</a></td>
                                 <td><a data-id="<?= $user['id'] ?>" type="button"
                                        class="btn btn-danger confirmDelete">PERMANENTLY DELETE</a></td>
                             </tr>

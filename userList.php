@@ -33,7 +33,8 @@ if (isset($dataBase)) {
                     unset($_SESSION['recoverMsg']);
                     ?>
                 </div>
-            <?php } ?>
+            <?php }
+            ?>
         </div>
         <div class="row">
             <div class="col-lg-10 m-auto">
