@@ -27,11 +27,10 @@ session_start();
                 <form action="response.php" method="post">
                     <label for="name">fullName:</label>
                     <input type="text" id="name"
-                           placeholder="Type Your Name" <?php if (isset($_SESSION["errorMessageName"]) || isset($_SESSION["errorMessageRegexName"])) {
+                           placeholder="Type Your Name"
+                           name="name" <?php if (isset($_SESSION["errorMessageName"]) || isset($_SESSION["errorMessageRegexName"])) {
                         print("class='errorMessageInput'");
-                    } ?>
-                           name="name"
-                    >
+                    } ?>>
                     <?php
                     if (isset($_SESSION["errorMessageName"])) {
                         echo "Error: " . $_SESSION["errorMessageName"];
