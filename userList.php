@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once 'dataBase.php';
 $view = "SELECT * FROM `users` WHERE status = 1 ORDER BY `fullName`";
 if (isset($dataBase)) {
@@ -26,9 +27,16 @@ if (isset($dataBase)) {
             <div class="alert alert-primary text-center mt-3" role="alert">
                 <h1>USER DETAILS</h1>
             </div>
+            <?php if (isset($_SESSION['recoverMsg'])) { ?>
+                <div class="alert alert-success text-center">
+                    <?php echo $_SESSION['recoverMsg'];
+                    unset($_SESSION['recoverMsg']);
+                    ?>
+                </div>
+            <?php } ?>
         </div>
         <div class="row">
-            <div class="col-lg-12 m-auto">
+            <div class="col-lg-10 m-auto">
                 <table class=" table table-bordered table-striped text-center table-info">
                     <tr>
                         <th>SL</th>
@@ -36,7 +44,7 @@ if (isset($dataBase)) {
                         <th>EMAIL</th>
                         <th>PHONE NUMBER</th>
                         <th>ACTION</th>
-                        <th>ACTION</th>
+
                     </tr>
                     <?php
                     if (isset($viewQuery)):
@@ -46,10 +54,8 @@ if (isset($dataBase)) {
                                 <td><?= $user['fullName'] ?></td>
                                 <td><?= $user['email'] ?></td>
                                 <td><?= $user['cellNumber'] ?></td>
-                                <td><a href="userDelete.php?userId=<?= $user['id'] ?>" type="button"
-                                       class="btn btn-warning"> TEMPORARY DELETE</a></td>
                                 <td><a data-id="<?= $user['id'] ?>" type="button"
-                                       class="btn btn-danger confirmDelete">PERMANENTLY DELETE</a></td>
+                                       class="btn btn-warning temporaryDelete">DELETE</a></td>
                             </tr>
                         <?php } endif; ?>
                 </table>
@@ -65,28 +71,12 @@ if (isset($dataBase)) {
         integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
         crossorigin="anonymous"></script>
 <script>
-    $('.confirmDelete').click(
+    $('.temporaryDelete').click(
         function () {
             let id = $(this).attr('data-id');
-            swal({
-                title: "Are you sure?",
-                text: "Once deleted, you will not be able to recover this  Data!",
-                icon: "warning",
-                buttons: true,
-                dangerMode: true,
-            })
-                .then((willDelete) => {
-                    if (willDelete) {
-                        swal("Poof! Your Data has been deleted!", {
-                            icon: "success",
-                        });
-                        setTimeout(function () {
-                            window.location.href = "userDelete.php?deletedId=" + id;
-                        }, 1500)
-                    } else {
-                        swal("Your Data Will be safe!");
-                    }
-                });
+            setTimeout(function () {
+                window.location.href = "userDelete.php?userId=" + id;
+            }, 500)
         }
     )
 </script>
