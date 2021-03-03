@@ -1,6 +1,6 @@
 <?php
 require_once 'dataBase.php';
-$view = "SELECT * FROM `users` WHERE status = 2 ORDER BY `fullName`";
+$view = "SELECT * FROM `users` WHERE `status` = 2 ORDER BY `fullName`";
 if (isset($dataBase)) {
     $viewQuery = mysqli_query($dataBase, $view);
 } else {

@@ -14,7 +14,7 @@ if (isset($dataBase)) {
     }
     if (isset($updateQuery)) {
         if ($updateQuery) {
-            $_SESSION['recoverMsg'] = "IF YOU RECOVER THIS USER PLEASE VISIT <a href='recoverUser.php' target='_blank' class='btn btn-info'>recoverMe</a>";
+            $_SESSION['recoverMsg'] = "IF YOU RECOVER THIS USER PLEASE VISIT <a href='recoverUser.php' target='_blank' class='btn btn-info mx-3'>RECOVER USER</a>";
             header("Location:userList.php");
         } else {
             echo "UPDATE NOT WORKING";
