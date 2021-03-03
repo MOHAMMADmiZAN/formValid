@@ -9,6 +9,6 @@ define('PASSWORD', '');
 define('DATABASE', 'registerform');*/
 //$dataBase = mysqli_connect(HOST, USER, PASSWORD, DATABASE);
 $dataBase = new mysqli(HOST,USER,PASSWORD,DATABASE);
-if (!$dataBase) {
-    echo "Database Error";
-}
+if ($dataBase->connect_error) :
+    print_r('Connect Error: ' . $dataBase->connect_error);
+endif;
