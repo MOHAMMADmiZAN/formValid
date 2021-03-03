@@ -90,17 +90,21 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         ///duplicate check query ///
         $duplicateCheck = "SELECT COUNT(*) as duplicates FROM `users` WHERE email = '$email' ";
         if (isset($dataBase)) {
-            $duplicateCheckQuery = mysqli_query($dataBase, $duplicateCheck);
+//            $duplicateCheckQuery = mysqli_query($dataBase, $duplicateCheck);
+            // object orient method ///
+            $duplicateCheckQuery = $dataBase->query($duplicateCheck);
             if (isset($duplicateCheckQuery)) {
                 /// duplicate Assoc Query ///
-                $duplicateAssoc = mysqli_fetch_assoc($duplicateCheckQuery);
+//                $duplicateAssoc = mysqli_fetch_assoc($duplicateCheckQuery);
+                $duplicateAssoc = $duplicateCheckQuery->fetch_assoc();
                 if (isset($duplicateAssoc)) {
                     if ($duplicateAssoc['duplicates'] > 0) {
                         echo "<p style='color: red;'>EMAIL ALREADY FOUND!</p>";
                     } else {
                         /// database insert query //
                         $insert = "INSERT INTO users(fullName, email, password,cellNumber, Gender) VALUES ('$getName','$getEmail','$getPassword','$getCell','$gender')";
-                        $dataQuery = mysqli_query($dataBase, $insert);
+//                        $dataQuery = mysqli_query($dataBase, $insert);
+                        $dataQuery = $dataBase->query($insert);
                         if (isset($dataQuery)) {
                             if ($dataQuery) {
                                 echo "<p style='color: green;'>DATA INSERT SUCCESSFUL</p>";

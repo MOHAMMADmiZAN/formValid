@@ -10,7 +10,8 @@ if (isset($dataBase)) {
         $update = "UPDATE `users` SET `status` = 2 WHERE `id` = '$id'";
     }
     if (isset($update)) {
-        $updateQuery = mysqli_query($dataBase, $update);
+        $updateQuery = $dataBase->query($update);
+        $dataBase->close();
     }
     if (isset($updateQuery)) {
         if ($updateQuery) {
@@ -25,7 +26,8 @@ if (isset($dataBase)) {
         $recover = "UPDATE `users` SET `status` = 1 WHERE `id` = '$recoverId'";
     }
     if (isset($recover)) {
-        $recoverQuery = mysqli_query($dataBase, $recover);
+        $recoverQuery = $dataBase->query($recover);
+        $dataBase->close();
     }
     if (isset($recoverQuery)) {
         if ($recoverQuery) {
@@ -41,7 +43,9 @@ if (isset($dataBase)) {
         $delete = "DELETE FROM `users` WHERE `id` = '$deletedId'";
     }
     if (isset($delete)) {
-        $deleteQuery = mysqli_query($dataBase, $delete);
+        $deleteQuery = $dataBase->query($delete);
+        $dataBase->close();
+
     }
     if (isset($deleteQuery)) {
         if ($deleteQuery) {

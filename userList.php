@@ -3,7 +3,8 @@ session_start();
 require_once 'dataBase.php';
 $view = "SELECT * FROM `users` WHERE `status` = 1 ORDER BY `fullName`";
 if (isset($dataBase)) {
-    $viewQuery = mysqli_query($dataBase, $view);
+    $viewQuery = $dataBase->query($view);
+    $dataBase->close();
 } else {
     echo 'database nai';
 }
