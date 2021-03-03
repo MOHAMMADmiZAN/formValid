@@ -103,15 +103,19 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
                     } else {
                         /// database insert query //
                         $insert = "INSERT INTO users(fullName, email, password,cellNumber, Gender) VALUES ('$getName','$getEmail','$getPassword','$getCell','$gender')";
-//                        $dataQuery = mysqli_query($dataBase, $insert);
-                        $dataQuery = $dataBase->query($insert);
-                        if (isset($dataQuery)) {
-                            if ($dataQuery) {
-                                echo "<p style='color: green;'>DATA INSERT SUCCESSFUL</p>";
-                            } else {
-                                echo "<p style='color: red;'>DATA INSERT ERROR</p>";
+                        if (isset($insert)) {
+//                     $dataQuery = mysqli_query($dataBase, $insert);
+                            $dataQuery = $dataBase->query($insert);
+                            $dataBase->close();
+                            if (isset($dataQuery)) {
+                                if ($dataQuery) {
+                                    echo "<p style='color: green;'>DATA INSERT SUCCESSFUL</p>";
+                                } else {
+                                    echo "<p style='color: red;'>DATA INSERT ERROR</p>";
+                                }
                             }
                         }
+
                     }
                 }
 
