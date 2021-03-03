@@ -7,7 +7,7 @@ $recoverId = $_GET['recoverId'];
 if (isset($dataBase)) {
 
     if (isset($id)) {
-        // update query //
+        // temporary delete query //
         $temporaryDelete = "UPDATE `users` SET `status` = 2 WHERE `id` = '$id'";
         if (isset($temporaryDelete)) {
             $temporaryDeleteQuery = $dataBase->query($temporaryDelete);
