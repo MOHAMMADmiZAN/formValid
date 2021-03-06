@@ -1,5 +1,5 @@
 <?php
-require_once 'dataBase.php';
+require_once './includes/dataBase.php';
 $view = "SELECT * FROM `users` WHERE `status` = 2 ORDER BY `fullName`";
 if (isset($dataBase)) {
     $viewQuery = $dataBase->query($view);
@@ -25,7 +25,7 @@ if (isset($dataBase)) {
     <div class="row">
         <div class="col-lg-12">
             <div class="alert alert-warning text-center mt-3" role="alert">
-                <h1>RECOVER USER</h1>
+                <h1>TEMPORARY DELETED USER</h1>
             </div>
         </div>
         <div class="row">

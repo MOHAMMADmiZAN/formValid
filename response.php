@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'dataBase.php';
+require_once './includes/dataBase.php';
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
     $name = $_POST["name"];
     $email = $_POST["email"];

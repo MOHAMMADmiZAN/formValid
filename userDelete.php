@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'dataBase.php';
+require_once './includes/dataBase.php';
 $id = $_GET['userId'];
 $deletedId = $_GET['deletedId'];
 $recoverId = $_GET['recoverId'];
