@@ -1,7 +1,6 @@
 <?php
 require_once "inc/header.php";
-$view = /** @lang */
-    "SELECT * FROM `users` WHERE `status` = 2 ORDER BY `fullName`";
+$view = "SELECT * FROM `users` WHERE `status` = 2 ORDER BY `fullName`";
 if (isset($dataBase)) {
     $viewQuery = $dataBase->query($view);
     $dataBase->close();
