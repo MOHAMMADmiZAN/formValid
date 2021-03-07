@@ -54,7 +54,7 @@ session_start();
         <form action="loginResponse.php" method="post">
             <div class="form-group">
                 <label for="l-email">EMAIL:</label>
-                <input type="text" id="l-email" class="form-control" name="email">
+                <input type="text" id="l-email" class="form-control" name="email" placeholder="Enter your password">
                 <?php
                 if (isset($_SESSION['EmailError'])) {
                     ?>
