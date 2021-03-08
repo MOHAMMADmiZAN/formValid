@@ -16,7 +16,7 @@ session_start();
     <link rel="stylesheet" href="./assets/css/formStyle.css">
 
 </head>
-<body>
+<body class="img-bg">
 <header class="formTitle">
     <div class="container"><h1>registerForm</h1></div>
 </header>

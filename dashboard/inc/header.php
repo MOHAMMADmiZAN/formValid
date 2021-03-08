@@ -58,6 +58,7 @@ if (isset($dataBase)) {
 
     <!-- Starlight CSS -->
     <link rel="stylesheet" href="../assets/css/starlight.css">
+    <link rel="stylesheet" href="../assets/css/custom.css">
 </head>
 
 <body>
@@ -201,7 +202,7 @@ if (isset($dataBase)) {
                 </a>
                 <div class="dropdown-menu dropdown-menu-header wd-200">
                     <ul class="list-unstyled user-profile-nav">
-                        <li><a href=""><i class="icon ion-ios-person-outline"></i> Edit Profile</a></li>
+                        <li><a href="editProfile.php"><i class="icon ion-ios-person-outline"></i> Edit Profile</a></li>
                         <li><a href=""><i class="icon ion-ios-gear-outline"></i> Settings</a></li>
                         <li><a href=""><i class="icon ion-ios-download-outline"></i> Downloads</a></li>
                         <li><a href=""><i class="icon ion-ios-star-outline"></i> Favorites</a></li>

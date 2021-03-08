@@ -1,5 +1,5 @@
 <?php
-session_start();
+require_once 'inc/session.php';
 require_once '../includes/dataBase.php';
 $id = $_GET['userId'];
 $deletedId = $_GET['deletedId'];
