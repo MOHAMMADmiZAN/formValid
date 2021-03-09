@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
                 $duplicateCheckAssoc = $duplicateCheckQuery->fetch_assoc();
                 if (isset($duplicateCheckAssoc)) {
 
-                    if ($duplicateCheckAssoc['emailverified'] > 0 === true && empty($email)) {
+                    if ($duplicateCheckAssoc['emailverified'] > 0 === true || empty($email)) {
                         $_SESSION['EmailError2'] = 'Try With Different Email !!';
                         header("Location:editProfile.php");
                     } else {
