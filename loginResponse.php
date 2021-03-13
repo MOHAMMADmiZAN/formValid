@@ -5,7 +5,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     $email = $_POST["email"];
     $password = $_POST["password"];
     /// Login Verify Query ///
-    $logVerify = "SELECT COUNT(*) as emailverified,password,id,email,status FROM `users` WHERE `email` =  '$email' ";
+    $logVerify = "SELECT COUNT(*) as emailverified,password,id,email,status FROM `users` WHERE `email` LIKE  '$email'  ";
     if (isset($dataBase)) {
         $logVerifyQuery = $dataBase->query($logVerify);
         if (isset($logVerifyQuery)) {
