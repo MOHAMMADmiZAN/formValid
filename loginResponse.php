@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
                     if ($logPasswordVerify) {
                         $_SESSION['email'] = $logVerifyAssoc['email'];
                         $_SESSION['id'] = $logVerifyAssoc['id'];
-                        header("Location:dashboard/index.php");
+                        header("Location:dashboard/register.php");
                     } else {
                         $_SESSION['passwordError'] = "password Invalid";
                         header("Location:login.php");
@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
                 }
 
             } else {
-                $_SESSION['EmailError'] = 'Not yet a member? <a href="index.php" class="tx-info">Sign Up</a>';
+                $_SESSION['EmailError'] = 'Not yet a member? <a href="register.php" class="tx-info">Sign Up</a>';
                 header("Location:login.php");
             }
 

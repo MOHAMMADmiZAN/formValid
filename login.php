@@ -83,7 +83,7 @@ session_start();
             </div><!-- form-group -->
             <button type="submit" class="btn btn-info btn-block">Sign In</button>
 
-            <div class="mg-t-60 tx-center">Not yet a member? <a href="index.php" class="tx-info">Sign Up</a>
+            <div class="mg-t-60 tx-center">Not yet a member? <a href="register.php" class="tx-info">Sign Up</a>
             </div>
         </form>
     </div><!-- login-wrapper -->
