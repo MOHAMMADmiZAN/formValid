@@ -61,7 +61,7 @@
                                    placeholder="Update Your Profile Image"
                                    onchange="document.getElementById('image_id').src = window.URL.createObjectURL(this.files[0])">
                             <div class=" preview mx-auto my-3 text-center"><h6>Image Preview</h6>
-                                <img id="image_id" width="200"
+                                <img id="image_id" width="200" height="200" class="b-ra-50"
                                      src="upload/<?= (isset($dashBoardUserIdViewAssoc)) ? $dashBoardUserIdViewAssoc['image'] : '' ?>"
                                      alt="<?= (isset($dashBoardUserIdViewAssoc)) ? $dashBoardUserIdViewAssoc['image'] : '' ?>"/>
                             </div>
