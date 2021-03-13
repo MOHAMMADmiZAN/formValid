@@ -198,7 +198,8 @@ if (isset($dataBase)) {
                     <span class="logged-name"><?php if (isset($dashBoardUserIdViewAssoc)) {
                             echo $dashBoardUserIdViewAssoc['fullName'];
                         } ?></span>
-                    <img src="../assets/img/img3.jpg" class="wd-32 rounded-circle" alt="">
+                    <img src="upload/<?= (isset($dashBoardUserIdViewAssoc)) ? $dashBoardUserIdViewAssoc['image'] : '' ?>"
+                         class="wd-32 rounded-circle" alt="">
                 </a>
                 <div class="dropdown-menu dropdown-menu-header wd-200">
                     <ul class="list-unstyled user-profile-nav">

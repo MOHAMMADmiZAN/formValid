@@ -12,48 +12,61 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     $imgExplode = explode(".", $imgName);
     $imgExtension = end($imgExplode);
     $supportedExtension = ["jpg", "jpeg", "png", "svg", "ico", "PNG", "JPG", "JPEG"];
+    if (($imgName === '')) {
+        $editProfile = " UPDATE `users` SET `fullName`='$name',`email`='$email',`cellNumber`='$phone' WHERE `id`='$sessionId'";
+        if (isset($dataBase)) {
+            $editProfileQuery = $dataBase->query($editProfile);
+            $dataBase->close();
+            if ($editProfileQuery) {
+                $_SESSION['update'] = "Profile successfully update";
+                header("Location:editProfile.php");
 
-    if (in_array($imgExtension, $supportedExtension, true) && $imgSize < 50000) {
+            }
+        }
+    }
+    if (in_array($imgExtension, $supportedExtension, true)) {
+        if ($imgSize < 500000) {
+            $sessionId = $_SESSION['id'];
+            $check = "SELECT * FROM `users` WHERE id = $sessionId";
+            /// default image chk ///
+            if (isset($dataBase)) {
+                $checkQuery = $dataBase->query($check);
+                $checkQueryAssoc = $checkQuery->fetch_assoc();
+                $imageOldLocation = 'upload/' . $checkQueryAssoc['image'];
 
+                if (file_exists($imageOldLocation)) {
+                    if ($checkQueryAssoc['image'] !== 'default.png') {
+                        unlink($imageOldLocation);
+                    }
+                }
+
+            }
+            $newName = random_int(0, 10000000) . $sessionId . '.' . $imgExtension;
+            echo $newName;
+            $newLoc = 'upload/' . $newName;
+            move_uploaded_file($img['tmp_name'], $newLoc);
+            $editProfile = " UPDATE `users` SET `fullName`='$name',`email`='$email',`cellNumber`='$phone',`image`='$newName' WHERE `id`='$sessionId'";
+            if (isset($dataBase)) {
+                $editProfileQuery = $dataBase->query($editProfile);
+                $dataBase->close();
+                if ($editProfileQuery) {
+                    $_SESSION['update'] = "Profile successfully update";
+                    header("Location:editProfile.php");
+
+                }
+            }
+
+        } else {
+            $_SESSION['fixed'] = "Please Fixed Image Size";
+            header("Location:editProfile.php");
+        }
     } else {
-        echo " Disallowed extensions";
-        print_r('</br>');
-        print_r($imgSize);
+        if (!isset($editProfileQuery)):
+            $_SESSION['noupdate'] = "Profile Not updated";
+            header("Location:editProfile.php");
+        endif;
     }
 
-    die();
-    $duplicateCheck = "SELECT COUNT(*) as emailverified FROM `users` WHERE `email`='$email'";
-    $editProfile = " UPDATE `users` SET `fullName`='$name',`email`='$email',`cellNumber`='$phone' WHERE `id`='$sessionId'";
-    if (isset($dataBase)) {
-
-
-//        if (isset($duplicateCheck)) {
-//            $duplicateCheckQuery = $dataBase->query($duplicateCheck);
-//            if (isset($duplicateCheckQuery)) {
-//                $duplicateCheckAssoc = $duplicateCheckQuery->fetch_assoc();
-//                if (isset($duplicateCheckAssoc)) {
-//                    if ($duplicateCheckAssoc['emailverified'] > 0 === true || empty($email)) {
-//                        $_SESSION['EmailError2'] = 'Try With Different Email !!';
-//                        header("Location:editProfile.php");
-//                    } else {
-//                        $editProfileQuery = $dataBase->query($editProfile);
-//                        $dataBase->close();
-//                        if ($editProfileQuery) {
-//                            $_SESSION['update'] = "Profile successfully update";
-//                            header("Location:editProfile.php");
-//
-//
-//                        } else {
-//                            echo "query Fail";
-//                        }
-//                    }
-//                }
-//            }
-//        }
-
-    } else {
-        echo 'database nai';
-    }
 
 } else {
     header("Location:editProfile.php");

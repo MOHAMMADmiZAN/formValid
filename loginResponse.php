@@ -5,7 +5,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     $email = $_POST["email"];
     $password = $_POST["password"];
     /// Login Verify Query ///
-    $logVerify = "SELECT COUNT(*) as emailverified,password,id,email FROM `users` WHERE `email`=  '$email' ";
+    $logVerify = "SELECT COUNT(*) as emailverified,password,id,email,status FROM `users` WHERE `email` =  '$email' ";
     if (isset($dataBase)) {
         $logVerifyQuery = $dataBase->query($logVerify);
         if (isset($logVerifyQuery)) {
@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
                     $logPasswordVerify = Password_verify($password, $dbPassword);
                     if ($logPasswordVerify) {
                         $_SESSION['email'] = $logVerifyAssoc['email'];
-                        $_SESSION['id']=$logVerifyAssoc['id'];
+                        $_SESSION['id'] = $logVerifyAssoc['id'];
                         header("Location:dashboard/index.php");
                     } else {
                         $_SESSION['passwordError'] = "password Invalid";
