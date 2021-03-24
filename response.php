@@ -18,11 +18,11 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     //name Validation //
     if (empty($name)) {
         $_SESSION["errorMessageName"] = "<span style='color:red;'>Please Enter Your Name</span>";
-        header("Location:register.php");
+        header("Location:index.php");
 
     } elseif ($nameRegex) {
         $_SESSION["errorMessageRegexName"] = "<span style='color:red;'>Only alphabets and whitespace are allowed.</span>";
-        header("Location:register.php");
+        header("Location:index.php");
 
     } else {
         $getName = $name;
@@ -31,10 +31,10 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     // email validation //
     if (empty($email)) {
         $_SESSION["errorMessageMail"] = "<span style='color:red;'>Please Enter Your Email</span>";
-        header("Location:register.php");
+        header("Location:index.php");
     } elseif ($emailRegex) {
         $_SESSION["errorMessageRegexMail"] = "<span style='color:red;'>Please Type Valid Email</span>";
-        header("Location:register.php");
+        header("Location:index.php");
 
     } else {
         $getEmail = $email;
@@ -43,11 +43,11 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     // password Validation //
     if (empty($password)) {
         $_SESSION["errorMessagePassword"] = "<span style='color:red;'>Please Enter Your Password</span>";
-        header("Location:register.php");
+        header("Location:index.php");
 
     } elseif ($passwordRegex) {
         $_SESSION["errorMessageRegexPassword"] = "<span style='color:red; font-size: 14px;'>At least 1 upper case, lower case, numeric, and special Character</span>";
-        header("Location:register.php");
+        header("Location:index.php");
 
     } else {
         $getPassword = password_hash($password, PASSWORD_DEFAULT);
@@ -55,13 +55,13 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     // confirmPassword validation //
     if (empty($confirmPassword)) {
         $_SESSION["errorMessageConfirmPassword"] = "<span style='color:red;'>Please Enter Your Confirm Password</span>";
-        header("Location:register.php");
+        header("Location:index.php");
     } elseif ($password !== $confirmPassword) {
         $_SESSION["errorMessageConfirmPasswordNotMatch"] = "<span style='color:red;'>Please Type Same Password</span>";
-        header("Location:register.php");
+        header("Location:index.php");
     } elseif ($password === $confirmPassword && $passwordRegex) {
         $_SESSION["errorMessageConfirmPasswordRegex"] = "<span style='color:red; font-size: 14px;'>At least 1 upper case, lower case, numeric, and special Character</span>";
-        header("Location:register.php");
+        header("Location:index.php");
 
     } else {
         $getConfirmPassword = $confirmPassword;
@@ -69,17 +69,17 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     // cellPhone validation //
     if (empty($cell)) {
         $_SESSION["errorMessageCell"] = "<span style='color:red;'>Please Enter Your Cell Number</span>";
-        header("Location:register.php");
+        header("Location:index.php");
     } elseif ($cellRegex) {
         $_SESSION["errorMessageCellRegex"] = "<span style='color:red;'>Please Type Valid Number</span>";
-        header("Location:register.php");
+        header("Location:index.php");
     } else {
         $getCell = $cell;
     }
     // Gender Validation //
     if (!isset($_POST["gender"])) {
         $_SESSION["errorMessageGender"] = "<span style='color:red;'> Please Select Your Gender </span>";
-        header("Location:register.php");
+        header("Location:index.php");
 
     } else {
         $gender = $_POST["gender"];
@@ -127,7 +127,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     }
 
 } else {
-    header("Location:register.php");
+    header("Location:index.php");
 }
 
 
